@@ -87,6 +87,10 @@ li {
   border:none;
 }
 
+#edit-td {
+  vertical-align:middle;
+}
+
 /* ul,li { */
 /*   border:2px solid blue; */
 /* } */
