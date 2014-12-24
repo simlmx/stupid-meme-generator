@@ -44,7 +44,7 @@ function showUrl() {
             //trim 'images/' and '.jpg'
             var src = child.attr('src')
                 .replace(/\.[^/.]+$/, "")
-                .substring(7);
+                .replace(/.*images[/]/, "");
             result.push('i' + i + '=' + src);
         } else if (child.is('.bubble')) {
             child = child.children('.bubble-text').first();
@@ -60,7 +60,6 @@ function showUrl() {
     if (result.length) {
         s += '?' + result.join('&');
     }
-    console.log(s);
     $('#share').attr('href', s).text('link');
 }
 
@@ -74,7 +73,6 @@ function initedit() {
 
             // if img
             var el = ui.item.children().first();
-            console.log(el);
             if(el.is('img')) {
                 var path = el.attr('src');
                 // if thumbnail change to non-thumbnail
@@ -104,7 +102,7 @@ function initedit() {
         '<li class="edit-item"><div class="bubble"></div></li>');
 
     // fill the edit pane with images
-    getImages("images/", "_t.jpg", '#edit-pane', function(){
+    getImages(location.pathname + "images/", "_t.jpg", '#edit-pane', function(){
         // make the edit pane images draggable
         $('#edit-pane').children().draggable({
             helper: 'clone',
@@ -205,11 +203,9 @@ function getImages(dir, ext, appendTo, cb) {
     success: function (data) {
         //List all file names in the page
         $(data).find("a:contains(" + ext + ")").each(function () {
-            var filename = this.href.replace(window.location.host, "")
-                .replace("http:///", "");
+            var filename = $(this).attr('href');
             $(appendTo).append(
                 '<li class="edit-item"><img src="' + dir + filename + '"></li>');
-            console.log(filename);
         });
         cb();
     }
