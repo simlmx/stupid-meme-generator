@@ -10,6 +10,7 @@ $(function() {
     $('#edit-btn').click(function() {
         $(this).hide();
         $('#done-btn').show();
+        $('#clear-btn').show();
         $('.bubble').prop('readonly', false);
         $('#edit-td').show();
         $("#content-pane").sortable("enable");
@@ -20,6 +21,7 @@ $(function() {
     $('#done-btn').click(function() {
         $(this).hide();
         $('#edit-btn').show();
+        $('#clear-btn').hide();
         $('.bubble').prop('readonly', true);
         $('#edit-td').hide();
         $("#content-pane").sortable("disable");
