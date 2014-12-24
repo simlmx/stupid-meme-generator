@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>stupid meme generator</title>
+    <link rel="stylesheet" href="meme.css">
+  </head>
+  <body>
+
+    <div id="btns" align="right">
+      <a id="share"></a>
+      <input id="edit-btn" type="button" value="Edit">
+      <input id="done-btn" type="button" value="Done" style="display:none">
+      <input id="clear-btn" type="button" value="Clear All">
+    </div>
+    <div>
+      <textarea id="title" readonly></textarea>
+    </div>
+    <table width="100%">
+      <tr>
+        <td>
+          <table id="content-inner-table"><tr><td id="content-inner-td">
+            <ul id="content-pane"></ul>
+          </td></tr></table>
+        </td>
+        <td id="edit-td" width="50%" style="display:none">
+          <ul id="edit-pane"></ul>
+        </td>
+      </tr>
+    </table>
+    Quelques exemples
+    <ul>
+      <li><a href="/?t0=T'es un ti qui toé?&i1=j2&t2=Ton fils!!&i3=p3&t4=... adopté!&i5=j3&i6=p3&title=La vérité sur Pierre">
+        exemple 1
+      </a></li>
+      <li><a href="/?t0=J'veux un xbox pour Noël!&i1=p2&t2=Trop cher petit ingrat!&i3=l1&t4=%22G%22 pour grateux!&i5=j3">
+        exemple 2
+      </a></li>
+    </ul>
+
+    <!-- <div class="bubble" style="width:100px;height:100px"><textarea class="bubble-text">patate poil</textarea></div> -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/meme.js"></script>
+    <script src="js/autosize.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+.bubble{
+  position: relative;
+  padding: 15px;
+  margin: 1em 0 3em;
+  /* margin : 10px; */
+  color: #000;
+  background: #f3961c;
+  border-radius: 10px;
+  background: linear-gradient(top, #f9d835, #f3961c);
+  display: inline-block;
+  min-width:100px;
+}
+
+/* creates triangle */
+.bubble:after{
+  content: "";
+  display: block; /* reduce the damage in FF3.0 */
+  position: absolute;
+  bottom: -14px;
+  left: 50px;
+  width: 0;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: #f3961c transparent;
+} 
+
+body {
+  text-align: center;
+}
+
+table,tr,td {
+  text-align: center;
+  vertical-align: top;
+  margin:auto;
+  padding:0px;
+}
+
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  margin:auto;
+  padding: 0px;
+}
+
+li {
+  text-align: center;
+  padding:0px;
+  margin:auto;
+}
+
+#content-pane {
+  vertical-align:text-top;
+  text-align:center;
+  min-height: 200px;
+  min-width:200px;
+  border: 1px dashed black;
+  margin:auto;
+  padding:10px;
+}
+
+.edit-item {
+  display:inline-block;
+}
+
+
+.bubble-text {
+  font-size: 30;
+  text-align:center;
+  width:100%;
+  height:100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width:256;
+  height:10;
+  resize:none;
+  background: #f3961c;
+  border:none;
+}
+
+#title {
+  text-align:center;
+  font-size:60px;
+  resize:none;
+  border:none;
+}
+
+/* ul,li { */
+/*   border:2px solid blue; */
+/* } */
+/* div { */
+/*   border:2px solid green; */
+/* } */
+/* table,tr,td { */
+/*   border:2px solid red; */
+/* } */
