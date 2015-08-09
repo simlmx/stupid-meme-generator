@@ -37,7 +37,7 @@ $(function() {
     });
     $('#clear-btn').click(function() {
         $('#content-pane').children('li').remove();
-        $('#title').text("");
+        $('#title').val("");
     });
     initedit();
 
