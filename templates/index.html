@@ -1,18 +1,20 @@
 <html>
   <head>
     <title>stupid meme generator</title>
-    <link rel="stylesheet" href="meme.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='meme.css') }}">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   </head>
   <body>
 
     <div id="btns" align="right">
-      <a id="share"></a>
       <input id="edit-btn" type="button" value="Edit">
       <input id="done-btn" type="button" value="Done" style="display:none">
       <input id="clear-btn" type="button" value="Clear All" style="display:none">
     </div>
     <div>
-      <textarea id="title" readonly></textarea>
+      <table width="100%">
+        <textarea id="title" readonly></textarea>
+      </table>
     </div>
     <table width="100%">
       <tr>
@@ -26,10 +28,9 @@
         </td>
       </tr>
     </table>
-    
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/meme.js"></script>
-    <script src="js/autosize.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery-2.1.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='meme.js') }}"></script>
+    <script src="{{ url_for('static', filename='autosize.min.js') }}"></script>
   </body>
 </html>

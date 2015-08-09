@@ -1,0 +1,12 @@
+{
+    "installations": [
+        {
+            "token": "math314",
+            "image_dir": "images"
+        },
+        {
+            "token": "fam999",
+            "image_dir": "images2"
+        }
+    ]
+}

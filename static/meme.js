@@ -16,7 +16,9 @@ $(function() {
         $("#content-pane").sortable("enable");
         $('.delete-btn').show();
         $('.bubble-text, #title').prop('readonly', false);
-        $('#share').attr('href', '').text('');
+        $('#title').css('border', '1px dashed black')
+                   .prop('placeholder', 'Title');
+        $('#clear-btn').show();
     });
     $('#done-btn').click(function() {
         $(this).hide();
@@ -27,10 +29,15 @@ $(function() {
         $("#content-pane").sortable("disable");
         $('.delete-btn').hide();
         $('.bubble-text, #title').prop('readonly', true);
-        showUrl();
+        $('#title').css('border', 'none')
+                   .prop('placeholder', '');
+        $('#clear-btn').hide();
+        // redirect to the url representing our meme
+        window.location.replace(getUrl());
     });
     $('#clear-btn').click(function() {
         $('#content-pane').children('li').remove();
+        $('#title').text("");
     });
     initedit();
 
@@ -38,7 +45,7 @@ $(function() {
     $('.bubble-text').autosize();
 });
 
-function showUrl() {
+function getUrl() {
     var result = [];
     $('#content-pane li').each( function(i) {
         var child = $(this).children().first();
@@ -62,7 +69,7 @@ function showUrl() {
     if (result.length) {
         s += '?' + result.join('&');
     }
-    $('#share').attr('href', s).text('link');
+    return s;
 }
 
 function initedit() {
@@ -104,7 +111,8 @@ function initedit() {
         '<li class="edit-item"><div class="bubble"></div></li>');
 
     // fill the edit pane with images
-    getImages(location.pathname + "images/", "_t.jpg", '#edit-pane', function(){
+    getImages(location.pathname + "image_list/", location.pathname + "images/",
+            "_t.jpg", '#edit-pane', function(){
         // make the edit pane images draggable
         $('#edit-pane').children().draggable({
             helper: 'clone',
@@ -151,7 +159,7 @@ function readQS() {
     a = window.location.search.substr(1).split('&');
     if (a == "") return {};
     var b = {};
-    for (var i = 0; i < a.length; ++i)
+    for (i = 0; i < a.length; ++i)
     {
         var p=a[i].split('=', 2);
         if (p.length == 1)
@@ -197,21 +205,17 @@ function contentToHtml(el) {
 var deleteButton =
     '<input class="delete-btn" value="x" type="button" style="display:none" onclick="deleteClick(this)">';
 
-function getImages(dir, ext, appendTo, cb) {
-    $.ajax({
-    //This will retrieve the contents of the folder if the folder is
-    // configured as 'browsable'
-    url: dir,
-    success: function (data) {
-        //List all file names in the page
-        $(data).find("a:contains(" + ext + ")").each(function () {
-            var filename = $(this).attr('href');
+function getImages(image_list_url, baseurl, ext, appendTo, cb) {
+    $.getJSON(image_list_url, function (data) {
+        for (i=0; i < data.length; ++i) {
+            var name = data[i];
             $(appendTo).append(
-                '<li class="edit-item"><img src="' + dir + filename + '"></li>');
-        });
+                '<li class="edit-item"><img src="' + baseurl + name
+                + '_t.jpg"></li>');
+        }
         cb();
     }
-    });
+    );
 }
 
 String.prototype.endsWith = function(suffix) {

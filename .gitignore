@@ -1,2 +1,7 @@
 *~
+*.swp
+*.pyc
 /images/*.jpg
+/smg-ve
+/.ropeproject
+/config.json
