@@ -211,7 +211,7 @@ function getImages(image_list_url, baseurl, ext, appendTo, cb) {
             var name = data[i];
             $(appendTo).append(
                 '<li class="edit-item"><img src="' + baseurl + name
-                + '_t.jpg"></li>');
+                + ext + '"></li>');
         }
         cb();
     }

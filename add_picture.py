@@ -50,8 +50,6 @@ def rescale_image(filename, output_filename, max_dim):
                     output_filename])
 
 
-
-
 if __name__ == '__main__':
     # arg 1 : input file
     # arg2 : output dir
@@ -61,10 +59,12 @@ if __name__ == '__main__':
 
     max_ = 256
     thumb_max = 128
+    new_ext='.jpg'
 
     filename = os.path.basename(image)
     name,ext = os.path.splitext(filename)
-    thumb_filename = name + '_t' + ext
+    filename = name + new_ext
+    thumb_filename = name + '_t' + new_ext
     rescale_image(
         image,
         os.path.join(output_dir,filename),
