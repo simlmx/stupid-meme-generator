@@ -52,7 +52,7 @@ def rescale_image(filename, output_filename, max_dim):
 
 if __name__ == '__main__':
     # arg 1 : input file
-    # arg2 : output dir
+    # arg 2 : output dir
 
     image = sys.argv[1]
     output_dir = sys.argv[2]
