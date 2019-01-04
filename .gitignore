@@ -2,6 +2,6 @@
 *.swp
 *.pyc
 /images/*.jpg
-/smg-ve
+/ve
 /.ropeproject
 /config.json
