@@ -5,7 +5,7 @@
 
 # With the versions and dependencies (output of `pip freeze`)
 Click==7.0
-Flask==1.0.2
+Flask==2.3.2
 gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
